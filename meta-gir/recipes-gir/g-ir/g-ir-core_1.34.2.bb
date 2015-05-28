@@ -4,6 +4,8 @@ DESCRIPTION = "This package provides the girs and typelibs that are part of the 
 DEPENDS += "glib-2.0"
 
 include g-ir.inc
+
+inherit autotools-brokensep
 inherit g-ir-base
 
 SRC_URI += "file://configure-introspection.patch	\
@@ -14,12 +16,8 @@ SRC_URI += "file://configure-introspection.patch	\
 SCANNER_ENV = "PKG_CONFIG=${STAGING_DIR_NATIVE}${bindir_native}/pkg-config PKG_CONFIG_PATH=${PKG_CONFIG_PATH} PKG_CONFIG_LIBDIR=${PKG_CONFIG_LIBDIR}"
 SCANNER_ARGS = "--library-path=${STAGING_DIR_HOST}${libdir}"
 
-do_install_append () {
-    rm -rf ${D}${datadir}/aclocal
-    rm -rf ${D}${datadir}/gobject-introspection-1.0
-    rm -rf ${D}${datadir}/man
-    rm -rf ${D}${libdir}/pkgconfig
-}
+EXTRA_OECONF += "--enable-shared"
+export GIR_EXTRA_COMPILER_ARGS = "--includedir=./gir"
 
 do_configure_prepend () {
     sed -i -e "s|PYTHON=/usr/bin/python|PYTHON=${PYTHON}|" \
@@ -29,4 +27,9 @@ do_configure_prepend () {
         ${S}/configure.ac
 }
 
-export GIR_EXTRA_COMPILER_ARGS = "--includedir=./gir"
+do_install_append () {
+    rm -rf ${D}${datadir}/aclocal
+    rm -rf ${D}${datadir}/gobject-introspection-1.0
+    rm -rf ${D}${datadir}/man
+    rm -rf ${D}${libdir}/pkgconfig
+}
