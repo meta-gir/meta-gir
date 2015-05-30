@@ -1,2 +1,0 @@
-
-inherit g-ir
