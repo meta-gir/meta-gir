@@ -1,0 +1,19 @@
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -12,6 +12,13 @@ bin_SCRIPTS =
+ GTESTER_PROGS =
+ noinst_PROGRAMS = $(GTESTER_PROGS)
+
++## Added to support native build start
++include common.mk
++include Makefile.introspection
++include Makefile-cmph.am
++include Makefile-girepository.am
++## Added to support native build end
++
+ include Makefile-giscanner.am
+ include Makefile-tools.am
+
+-- 
+1.7.9.5
+

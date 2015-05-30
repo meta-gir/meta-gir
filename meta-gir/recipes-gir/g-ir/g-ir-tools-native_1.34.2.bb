@@ -3,14 +3,16 @@ DESCRIPTION = "This package provides native verion g-ir-scanner for use on host"
 
 include g-ir.inc
 
+DEPENDS += "python prelink-native"
+
 inherit native pythonnative
 
-DEPENDS += "prelink-native"
-
-SRC_URI += "file://scanner-only.patch		\
-	    file://use-runme-wrapper.patch	\
-	    file://use-ldd-wrapper.patch	\
-	   "
+SRC_URI += " \
+    file://scanner-only.patch \
+    file://use-runme-wrapper.patch \
+    file://use-ldd-wrapper.patch \
+    file://fix-native-build.patch \
+"
 
 # Need to set up the scanner so that it uses the target root
 SCANNER_ENV = "PKG_CONFIG=${STAGING_DIR_NATIVE}${bindir_native}/pkg-config PKG_CONFIG_PATH=${PKG_CONFIG_PATH} PKG_CONFIG_LIBDIR=${PKG_CONFIG_LIBDIR}"

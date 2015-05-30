@@ -1,0 +1,14 @@
+diff --git a/tests/Makefile.am
+index 4ec6477..52a94a4 100644
+--- a/tests/Makefile.am
++++ b/tests/Makefile.am
+@@ -1,3 +1,4 @@
++if ENABLE_CAIRO
+ CLEANFILES =
+ noinst_LTLIBRARIES = libregress.la libgimarshallingtests.la
+
+@@ -119,3 +120,4 @@ check.valgrind:
+        EXEC_NAME="valgrind --suppressions=python.supp" G_SLICE=always-malloc G_DEBUG=gc-friendly $(MAKE) check
+
+ -include $(top_srcdir)/git.mk
++endif
