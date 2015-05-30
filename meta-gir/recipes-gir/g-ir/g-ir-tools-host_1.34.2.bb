@@ -7,7 +7,7 @@ include g-ir.inc
 # This package is for use on the host only, and only stages files into
 # native systroot; the target version of the tools is provided by the
 # g-ir-core package, which we need in place
-DEPENDS += "qemuwrapper-cross libgirepository"
+DEPENDS += "qemu-native qemuwrapper-cross libgirepository"
 
 SRC_URI += "file://g-ir-compiler		\
 	    file://g-ir-generate		\

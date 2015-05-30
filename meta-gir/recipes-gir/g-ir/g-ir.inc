@@ -10,7 +10,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=90d577535a3898e1ae5dbf0ae3509a8c \
                     file://giscanner/sourcescanner.c;endline=22;md5=194d6e0c1d00662f32d030ce44de8d39 \
                     file://girepository/giregisteredtypeinfo.c;endline=21;md5=661847611ae6979465415f31a759ba27"
 
-inherit autotools pkgconfig gtk-doc gnome
+inherit autotools pkgconfig gtk-doc gnomebase
 
 SRCNAME="gobject-introspection"
 
