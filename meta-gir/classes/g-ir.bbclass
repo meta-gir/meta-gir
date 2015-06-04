@@ -21,6 +21,8 @@ do_configure_prepend_class-target () {
     mkdir -p ${S}/m4
     cp ${STAGING_DIR_TARGET}/${datadir}/aclocal/introspection.m4 ${S}/m4
 
-    find ${S} -type f -name Makefile.am -print0 | xargs -0 -n 1 \
+    find ${S} -type f -name Makefile.am -print0 | while read ; do
+	xargs -0 -n 1 \
         sed -i -e 's|--libtool=\"$(top_builddir)/libtool\"|--libtool=\"$(LIBTOOL)\"|g'
+    done
 }
