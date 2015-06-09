@@ -8,9 +8,9 @@ include g-ir.inc
 inherit autotools-brokensep
 inherit g-ir-base
 
-SRC_URI += "file://configure-introspection.patch	\
-	    file://gir-only.patch			\
-	    file://fixup-gir-build.patch		\
+SRC_URI += "file://configure-introspection.patch \
+	    file://gir-only.patch \
+            file://fixup-gir-build.patch \
 	   "
 
 SCANNER_ENV = "PKG_CONFIG=${STAGING_DIR_NATIVE}${bindir_native}/pkg-config PKG_CONFIG_PATH=${PKG_CONFIG_PATH} PKG_CONFIG_LIBDIR=${PKG_CONFIG_LIBDIR}"

@@ -1,11 +1,17 @@
-# Upstream-Status: inapropriate
-# Fix up python config for use of python-native and set up various pkg-config
-# vars for further sed pre-processing
-Index: gobject-introspection-1.34.2/configure.ac
-===================================================================
---- gobject-introspection-1.34.2.orig/configure.ac	2012-11-12 20:46:42.000000000 +0000
-+++ gobject-introspection-1.34.2/configure.ac	2013-03-27 16:29:36.021397472 +0000
-@@ -132,6 +132,30 @@
+From 37a3eab5801c32f9e09f3f30adae6022d7f190b9 Mon Sep 17 00:00:00 2001
+From: Changhyeok Bae <changhyeok.bae@lge.com>
+Date: Tue, 9 Jun 2015 09:08:32 +0900
+Subject: [PATCH] configure-common
+
+---
+ configure.ac |   44 +++++++++++++++++++++++++++++++-------------
+ 1 file changed, 31 insertions(+), 13 deletions(-)
+
+diff --git a/configure.ac b/configure.ac
+index 1fd260a..236a7dd 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -135,6 +135,30 @@ PKG_CHECK_MODULES(GIO, [gio-2.0])
  PKG_CHECK_MODULES(GIO_UNIX, [gio-unix-2.0], have_gio_unix=true, have_gio_unix=false)
  AM_CONDITIONAL(HAVE_GIO_UNIX, test x$have_gio_unix = xtrue)
  
@@ -33,15 +39,15 @@ Index: gobject-introspection-1.34.2/configure.ac
 +AC_SUBST(GIO_UNIX_PACKAGES)
 +AC_SUBST(GIO_CINCLUDES)
 +
- AC_ARG_ENABLE(tests,
- 	AS_HELP_STRING([--disable-tests], [disable test libraries]),
- 	enable_tests=$enableval,
-@@ -247,19 +271,13 @@
+ # Prefer cairo-gobject if we have it
+ AC_ARG_WITH(cairo,
+ 	    AS_HELP_STRING([--with-cairo], [Use cairo @<:@default=maybe@:>@]),
+@@ -250,19 +274,13 @@ AC_FUNC_STRTOD
  AC_CHECK_FUNCS([memchr strchr strspn strstr strtol strtoull])
  AC_CHECK_FUNCS([backtrace backtrace_symbols])
  
 -# Python
--AM_PATH_PYTHON([2.5])
+-AM_PATH_PYTHON([2.6])
 -case "$host" in
 -*-*-mingw*)
 -	# Change backslashes to forward slashes in pyexecdir to avoid
@@ -63,3 +69,6 @@ Index: gobject-introspection-1.34.2/configure.ac
  
  dnl Not enabled by default until 3.6 cycle when we can propose mako as
  dnl an external dependency
+-- 
+1.7.9.5
+

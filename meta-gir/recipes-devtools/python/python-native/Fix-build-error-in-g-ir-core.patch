@@ -1,0 +1,30 @@
+From 53e92ec0b10452171c6c479e9f46ec5a10b5af43 Mon Sep 17 00:00:00 2001
+From: Changhyeok Bae <changhyeok.bae@gmail.com>
+Date: Tue, 9 Jun 2015 13:30:48 +0900
+Subject: [PATCH] Fix build error in g-ir-core
+
+Error in g-ir-core:
+EXEC_PREFIX = os.path.normpath(sys.exec_prefix).replace( os.getenv("BUILD_SYS"), os.getenv("HOST_SYS") )
+| TypeError: expected a character buffer object
+---
+ Lib/distutils/sysconfig.py |    4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/Lib/distutils/sysconfig.py b/Lib/distutils/sysconfig.py
+index 473d476..044a7c6 100644
+--- a/Lib/distutils/sysconfig.py
++++ b/Lib/distutils/sysconfig.py
+@@ -19,8 +19,8 @@ import sys
+ from distutils.errors import DistutilsPlatformError
+ 
+ # These are needed in a couple of spots, so just compute them once.
+-PREFIX = os.path.normpath(sys.prefix).replace( os.getenv("BUILD_SYS"), os.getenv("HOST_SYS") )
+-EXEC_PREFIX = os.path.normpath(sys.exec_prefix).replace( os.getenv("BUILD_SYS"), os.getenv("HOST_SYS") )
++PREFIX = os.path.normpath(sys.prefix).replace( str(os.getenv("BUILD_SYS")), str(os.getenv("HOST_SYS")) )
++EXEC_PREFIX = os.path.normpath(sys.exec_prefix).replace( str(os.getenv("BUILD_SYS")), str(os.getenv("HOST_SYS")) )
+ 
+ # Path to the base directory of the project. On Windows the binary may
+ # live in project/PCBuild9.  If we're dealing with an x64 Windows build,
+-- 
+1.7.9.5
+

@@ -16,8 +16,8 @@ SRC_URI = " \
     http://ftp.gnome.org/pub/GNOME/sources/${SRCNAME}/${@gnome_verdir("${PV}")}/${SRCNAME}-${PV}.tar.xz \
     file://configure-common.patch \
 "
-SRC_URI[md5sum] = "9dc9822eb2912e9b73e51ae67fe86145"
-SRC_URI[sha256sum] = "bc7948a35ce2218922dfb0806679cad21060715cc0c340cf7823eb633cc03429"
+SRC_URI[md5sum] = "4fa52f6b67367d9c1b99b98683ced202"
+SRC_URI[sha256sum] = "3ba2edfad4f71d4f0de16960b5d5f2511335fa646b2c49bbb93ce5942b3f95f7"
 
 S = "${WORKDIR}/${SRCNAME}-${PV}"
 

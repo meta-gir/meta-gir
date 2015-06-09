@@ -1,27 +1,17 @@
-Index: gobject-introspection-1.34.2/Makefile.am
-===================================================================
---- gobject-introspection-1.34.2.orig/Makefile.am	2013-03-27 16:08:36.230670707 +0000
-+++ gobject-introspection-1.34.2/Makefile.am	2013-03-27 16:08:36.394670044 +0000
-@@ -18,14 +18,12 @@
- include Makefile-cmph.am
- include Makefile-girepository.am
- include Makefile-giscanner.am
--include Makefile-examples.am
--include Makefile-gir.am
- include Makefile-tools.am
- 
- ## Process this file with automake to produce Makefile.in
- ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
- 
--SUBDIRS = . docs tests
-+SUBDIRS = .
- 
- DIST_SUBDIRS = m4 $(SUBDIRS)
- DISTCHECK_CONFIGURE_FLAGS = --enable-gtk-doc
-Index: gobject-introspection-1.34.2/Makefile-tools.am
-===================================================================
---- gobject-introspection-1.34.2.orig/Makefile-tools.am	2012-02-21 15:43:45.000000000 +0000
-+++ gobject-introspection-1.34.2/Makefile-tools.am	2013-03-27 16:10:33.618196052 +0000
+From ffb8df9a650f16fa65c8069f069b850c31cf1b1f Mon Sep 17 00:00:00 2001
+From: Changhyeok Bae <changhyeok.bae@lge.com>
+Date: Tue, 9 Jun 2015 09:41:26 +0900
+Subject: [PATCH] host tools only
+
+---
+ Makefile-tools.am |   19 -------------------
+ Makefile.am       |    4 +---
+ 2 files changed, 1 insertion(+), 22 deletions(-)
+
+diff --git a/Makefile-tools.am b/Makefile-tools.am
+index 34d2a25..7f021f8 100644
+--- a/Makefile-tools.am
++++ b/Makefile-tools.am
 @@ -1,9 +1,4 @@
  bin_PROGRAMS += g-ir-compiler g-ir-generate
 -bin_SCRIPTS += g-ir-scanner g-ir-annotation-tool
@@ -32,7 +22,7 @@ Index: gobject-introspection-1.34.2/Makefile-tools.am
  
  EXTRA_DIST += 				\
  	tools/g-ir-scanner.in 		\
-@@ -12,18 +7,6 @@
+@@ -12,18 +7,6 @@ EXTRA_DIST += 				\
  
  TOOL_SUBSTITUTIONS = sed -e s,@libdir\@,$(libdir), -e s,@datarootdir\@,$(datarootdir), -e s,@PYTHON\@,$(PYTHON),
  
@@ -51,9 +41,33 @@ Index: gobject-introspection-1.34.2/Makefile-tools.am
  g_ir_compiler_SOURCES = tools/compiler.c
  g_ir_compiler_CPPFLAGS = -DGIREPO_DEFAULT_SEARCH_PATH="\"$(libdir)\"" \
  			 -I$(top_srcdir)/girepository
-@@ -45,5 +28,3 @@
+@@ -45,5 +28,3 @@ g_ir_generate_LDADD = \
  GCOVSOURCES =					\
  	$(g_ir_compiler_SOURCES)		\
  	$(g_ir_generate_SOURCES)
 -
 -CLEANFILES += g-ir-scanner g-ir-annotation-tool g-ir-doc-tool
+diff --git a/Makefile.am b/Makefile.am
+index 1a988a5..44c942a 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -20,15 +20,13 @@ include Makefile.introspection
+ include Makefile-cmph.am
+ include Makefile-girepository.am
+ include Makefile-giscanner.am
+-include Makefile-examples.am
+-include Makefile-gir.am
+ include Makefile-tools.am
+ include Makefile-msvcproj.am
+ 
+ ## Process this file with automake to produce Makefile.in
+ ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
+ 
+-SUBDIRS = . docs tests build
++SUBDIRS = . build
+ 
+ DIST_SUBDIRS = $(SUBDIRS)
+ DISTCHECK_CONFIGURE_FLAGS = --enable-gtk-doc --enable-doctool
+-- 
+1.7.9.5
+
