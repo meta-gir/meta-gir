@@ -1,5 +1,5 @@
 
-META-GIR -- GObject Introspection for Yocto & OpenEmbedded
+MdfasdfETA-GIR -- GObject Introspection for Yocto & OpenEmbedded
 ==========================================================
 
 
