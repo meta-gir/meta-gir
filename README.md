@@ -95,12 +95,10 @@ to define the complementary glob somewhere suitable:
 You can then use 'gir-pkgs' as a standard image feature, and you will almost
 certainly want to add 'gir-pkgs' to SDKIMAGE_FEATURES as well.
 
-
 TODO
 ----
 
-It supports dizzy (1.7) and will update to fido (1.8).
-Also need to update gir to latest stable version.
+Need to update gir to latest stable version.
 
 Known Issues
 ------------

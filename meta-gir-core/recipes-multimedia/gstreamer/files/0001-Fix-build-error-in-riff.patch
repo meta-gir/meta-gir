@@ -1,0 +1,32 @@
+From ef03ff7269f48ad0d12c4d10f1e1b8dbf92a3673 Mon Sep 17 00:00:00 2001
+From: Changhyeok Bae <changhyeok.bae@gmail.com>
+Date: Tue, 30 Jun 2015 14:18:24 +0900
+Subject: [PATCH] Fix build error in riff
+
+| gst-plugins-base-1.4.5/gst-libs/gst/riff/riff.h:25:31: fatal error: gst/riff/riff-ids.h: No such file or directory
+|  #include <gst/riff/riff-ids.h>
+|                                ^
+| compilation terminated.
+---
+ gst-libs/gst/riff/riff.h |    6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/gst-libs/gst/riff/riff.h b/gst-libs/gst/riff/riff.h
+index a4b2205..d4edb88 100644
+--- a/gst-libs/gst/riff/riff.h
++++ b/gst-libs/gst/riff/riff.h
+@@ -22,8 +22,8 @@
+ #ifndef __GST_RIFF_H__
+ #define __GST_RIFF_H__
+ 
+-#include <gst/riff/riff-ids.h>
+-#include <gst/riff/riff-media.h>
+-#include <gst/riff/riff-read.h>
++#include "riff-ids.h"
++#include "riff-media.h"
++#include "riff-read.h"
+ 
+ #endif /* __GST_RIFF_H__ */
+-- 
+1.7.9.5
+
