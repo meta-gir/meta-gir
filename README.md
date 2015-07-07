@@ -57,10 +57,10 @@ The meta-gir repository consists of three separate layers, to make it easier to
 pick and choose as required:
 
 * meta-gir:       classes and packages that provide the tools and infrastructure
-                  for g-i support,
+                  for g-i support.
 
 * meta-gir-core:  bbappends that enable g-i for packages that are part of
-                  oecore,
+                  openembedded-core.
 
 Enabling g-i in packages
 ------------------------
@@ -107,3 +107,8 @@ Known Issues
 
  * The scripts expect bash; if anybody feels strong enough about rewriting them,
    there is a free line awaiting in the AUTHORS file ...
+
+Contribution
+------------
+- github: pull requests (https://github.com/meta-gir/meta-gir)
+- gerrithub: request gerrit review (https://review.gerrithub.io/#/admin/projects/meta-gir/meta-gir)
