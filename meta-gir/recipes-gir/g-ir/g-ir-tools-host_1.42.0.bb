@@ -50,7 +50,7 @@ do_install_append () {
 # Because normal packages do not stage binaries into target root, we install
 # the binaries we need into the native root here with the .bin extension for
 # use by the qemu wrapper we provide around them
-MULTIMACH_TARGET_SYS = "${PACKAGE_ARCH}${HOST_VENDOR}-${HOST_OS}"
+MULTIMACH_TARGET_SYS = "${TARGET_SYS}"
 STAGING_BINDIR = "${STAGING_BINDIR_NATIVE}/${MULTIMACH_TARGET_SYS}"
 do_populate_sysroot[sstate-inputdirs] = "${SYSROOT_DESTDIR}/${STAGING_DIR_NATIVE}/"
 do_populate_sysroot[sstate-outputdirs] = "${STAGING_DIR_NATIVE}/"
