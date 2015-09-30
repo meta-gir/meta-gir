@@ -109,4 +109,3 @@ Known Issues
 Contribution
 ------------
 - github: pull requests (https://github.com/meta-gir/meta-gir)
-- gerrithub: request gerrit review (https://review.gerrithub.io/#/admin/projects/meta-gir/meta-gir)
