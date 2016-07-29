@@ -2,6 +2,9 @@
 META-GIR -- GObject Introspection for Yocto & OpenEmbedded
 ==========================================================
 
+GObject Introspection is fully supported in openembedded-core from Krogoth (2.1).
+So meta-gir layer isn't updated anymore. Please use openembedded-core layer.
+Reference: https://www.yoctoproject.org/downloads/core/krogoth21
 
 Introduction
 ------------
